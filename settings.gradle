@@ -1,0 +1,4 @@
+rootProject.name='Doc'
+include ':app'
+include ':repository'
+include ':domain'

@@ -1,0 +1,52 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId "cn.luyinbros.doc"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        flavorDimensions "app"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    productFlavors{
+        dev{
+            missingDimensionStrategy "repository","product1"
+            missingDimensionStrategy "domain","product1"
+        }
+
+        beta{
+            missingDimensionStrategy "repository","product2"
+            missingDimensionStrategy "domain","product2"
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    compileOnly group: 'org.checkerframework', name: 'checker-qual', version: '3.2.0'
+    compileOnly group: 'org.checkerframework', name: 'checker-qual-android', version: '3.2.0'
+    compileOnly group: 'org.checkerframework', name: 'checker-compat-qual', version: '2.5.5'
+
+    implementation project(':domain')
+    implementation project(':repository')
+
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+}
