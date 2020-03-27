@@ -86,7 +86,7 @@ productFlavors {
         }
 
         product2 {
-            missingDimensionStrategy "repository","product1"
+            missingDimensionStrategy "repository","product2"
         }
 
 }
