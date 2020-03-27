@@ -30,11 +30,11 @@ defaultConfig{
 
  productFlavors {
         product1 {
-            ....
+            ...
         }
 
         product2 {
-           ...
+            ... 
         }
 
     }
@@ -72,8 +72,8 @@ app module
  
 productFlavors {
         dev {
-           missingDimensionStrategy "repository","product1"
            missingDimensionStrategy "domain","product1"
+           missingDimensionStrategy "repository","product1"
         }
 
 }
@@ -90,6 +90,9 @@ productFlavors {
         }
 
 }
+
+
+
 ```
 
 但是如果有这种情况
@@ -97,6 +100,32 @@ productFlavors {
 App Module dev <- Domain Module product1
 App Module dev <- Repository Module product2
 Domain Module product1 <- Repository Module product1
+
+
+ex:
+app module
+ 
+productFlavors {
+        dev {
+           missingDimensionStrategy "domain","product1"
+           missingDimensionStrategy "repository","product2"
+        }
+
+}
+
+Domain Module 
+
+productFlavors {
+        product1 {
+            missingDimensionStrategy "repository","product1"
+        }
+
+        product2 {
+            missingDimensionStrategy "repository","product2"
+        }
+
+}
+
 ```
 App Module dev 会覆盖 Domain Module product1的选择
 ```
