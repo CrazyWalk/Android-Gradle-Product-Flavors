@@ -24,13 +24,13 @@ android {
 
     productFlavors{
         dev{
-            missingDimensionStrategy "repository","product1"
             missingDimensionStrategy "domain","product1"
+            missingDimensionStrategy "repository","product2"
         }
 
         beta{
-            missingDimensionStrategy "repository","product2"
             missingDimensionStrategy "domain","product2"
+            missingDimensionStrategy "repository","product2"
         }
     }
 }

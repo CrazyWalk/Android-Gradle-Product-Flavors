@@ -139,6 +139,11 @@ Domain Module product1 <- Repository Module product1
 Domain Module product1 <- Repository Module product2
 
 ```
+并且还有提示
+
+![](static/img1.png)
+
+因此在开发过程中需要注意这个问题
 
 ## 结论
 productFlavors 的选择是 依赖从上到下 优先级降低。
